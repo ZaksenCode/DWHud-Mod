@@ -2,7 +2,7 @@
 DWHud - это мод который позволяет изменить стандартный вид интерфейса на сервере DiamondWorld. <br />
 версия: 1.19.2 + Fabric loader 0.14.11
 # Особонности мода
-мод позволяет вам настроить:
+мод позволяет вам настроить:  <br />
 тему отображения: <br />
 ![java_Lmbmwv9glb](https://user-images.githubusercontent.com/70453716/206802544-4124fb9e-3acd-4e72-87ac-b2b748362f2c.png)
 ![java_MxKxdsAGx1](https://user-images.githubusercontent.com/70453716/206802609-df5c41e5-7353-408f-8563-e486397941b4.png)
