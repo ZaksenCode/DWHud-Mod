@@ -148,7 +148,7 @@ public abstract class InGameHudMixin
                 if(Dwhud.CONFIG.stuff.showOnline)
                 {
                     this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE352"), Dwhud.CONFIG.positions.onlineX, Dwhud.CONFIG.positions.onlineY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Онлайн: " + blocks), Dwhud.CONFIG.positions.onlineX + 15, Dwhud.CONFIG.positions.onlineY, Dwhud.CONFIG.textColor);
+                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Онлайн: " + online), Dwhud.CONFIG.positions.onlineX + 15, Dwhud.CONFIG.positions.onlineY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showEvent)
                 {
