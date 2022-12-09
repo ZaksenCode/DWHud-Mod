@@ -1,0 +1,32 @@
+{
+  "text.autoconfig.dwhud.title":  "Diamond World (Evo) HUD",
+
+  "text.autoconfig.dwhud.option.showElements" : "Show custom HUD",
+  "text.autoconfig.dwhud.option.hideScoreboard" : "Hide Scoreboard",
+  "text.autoconfig.dwhud.option.stuff": "Custom HUD elements",
+  "text.autoconfig.dwhud.option.stuff.showMoney" : "Show money",
+  "text.autoconfig.dwhud.option.stuff.showShards" : "Show shard",
+  "text.autoconfig.dwhud.option.stuff.showLevel" : "Show level",
+  "text.autoconfig.dwhud.option.stuff.showBlocks" : "Show blocks",
+  "text.autoconfig.dwhud.option.stuff.showKills" : "Show kills",
+  "text.autoconfig.dwhud.option.stuff.showOnline" : "Show online",
+  "text.autoconfig.dwhud.option.stuff.showEvent" : "Show event",
+  "text.autoconfig.dwhud.option.textColor" : "Text color",
+  "text.autoconfig.dwhud.option.preset": "HUD preset",
+  "text.autoconfig.dwhud.option.positions": "Custom HUD elements positions",
+
+  "text.autoconfig.dwhud.option.positions.moneyX": "Balance position (x)",
+  "text.autoconfig.dwhud.option.positions.moneyY": "Balance position (y)",
+  "text.autoconfig.dwhud.option.positions.shardsX": "Shards position (x)",
+  "text.autoconfig.dwhud.option.positions.shardsY": "Shards position (y)",
+  "text.autoconfig.dwhud.option.positions.levelX": "Level position (x)",
+  "text.autoconfig.dwhud.option.positions.levelY": "Level position (y)",
+  "text.autoconfig.dwhud.option.positions.killsX": "Kills position (x)",
+  "text.autoconfig.dwhud.option.positions.killsY": "Kills position (y)",
+  "text.autoconfig.dwhud.option.positions.blocksX": "Blocks position (x)",
+  "text.autoconfig.dwhud.option.positions.blocksY": "Blocks position (y)",
+  "text.autoconfig.dwhud.option.positions.onlineX": "Online position (x)",
+  "text.autoconfig.dwhud.option.positions.onlineY": "Online position (y)",
+  "text.autoconfig.dwhud.option.positions.eventX": "Event position (x)",
+  "text.autoconfig.dwhud.option.positions.eventY": "Event position (y)"
+}

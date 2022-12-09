@@ -1,0 +1,32 @@
+{
+  "text.autoconfig.dwhud.title":  "Diamond World (Evo) HUD",
+
+  "text.autoconfig.dwhud.option.showElements" : "Отображать custom HUD",
+  "text.autoconfig.dwhud.option.hideScoreboard" : "Скрывать Scoreboard",
+  "text.autoconfig.dwhud.option.stuff": "Custom HUD элементы",
+  "text.autoconfig.dwhud.option.stuff.showMoney" : "Отображать деньги",
+  "text.autoconfig.dwhud.option.stuff.showShards" : "Отображать шарды",
+  "text.autoconfig.dwhud.option.stuff.showLevel" : "Отображать уровень",
+  "text.autoconfig.dwhud.option.stuff.showBlocks" : "Отображать блоки",
+  "text.autoconfig.dwhud.option.stuff.showKills" : "Отображать убийства",
+  "text.autoconfig.dwhud.option.stuff.showOnline" : "Отображать онлайн",
+  "text.autoconfig.dwhud.option.stuff.showEvent" : "Отображать событие",
+  "text.autoconfig.dwhud.option.textColor" : "Цвет текста",
+  "text.autoconfig.dwhud.option.preset": "Шаблон отображения",
+  "text.autoconfig.dwhud.option.positions": "Позиции custom HUD элементов",
+
+  "text.autoconfig.dwhud.option.positions.moneyX": "Позиция баланса (x)",
+  "text.autoconfig.dwhud.option.positions.moneyY": "Позиция баланса (y)",
+  "text.autoconfig.dwhud.option.positions.shardsX": "Позиция шардов (x)",
+  "text.autoconfig.dwhud.option.positions.shardsY": "Позиция шардов (y)",
+  "text.autoconfig.dwhud.option.positions.levelX": "Позиция уровня (x)",
+  "text.autoconfig.dwhud.option.positions.levelY": "Позиция уровня (y)",
+  "text.autoconfig.dwhud.option.positions.killsX": "Позиция убийств (x)",
+  "text.autoconfig.dwhud.option.positions.killsY": "Позиция убийств (y)",
+  "text.autoconfig.dwhud.option.positions.blocksX": "Позиция блоков (x)",
+  "text.autoconfig.dwhud.option.positions.blocksY": "Позиция блоков (y)",
+  "text.autoconfig.dwhud.option.positions.onlineX": "Позиция онлайна (x)",
+  "text.autoconfig.dwhud.option.positions.onlineY": "Позиция онлайна (y)",
+  "text.autoconfig.dwhud.option.positions.eventX": "Позиция события (x)",
+  "text.autoconfig.dwhud.option.positions.eventY": "Позиция события (y)"
+}

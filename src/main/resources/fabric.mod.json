@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "dwhud",
+  "version": "${version}",
+  "name": "DWHud",
+  "description": "добавляет custom HUD'a для сервера Diamond World",
+  "authors": [
+    "Zaksen_"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/dwhud/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "zaksen.dwhud.client.DwhudClient"
+    ],
+    "main": [
+      "zaksen.dwhud.Dwhud"
+    ],
+    "modmenu": [
+      "zaksen.dwhud.modmenu.DwhudModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "dwhud.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
