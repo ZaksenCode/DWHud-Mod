@@ -6,6 +6,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
 import static zaksen.dwhud.Dwhud.MOD_ID;
 
+
 @Config(name = MOD_ID)
 public class DwhudConfig implements ConfigData
 {

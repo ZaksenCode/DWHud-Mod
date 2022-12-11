@@ -34,15 +34,9 @@ import static zaksen.dwhud.client.DwhudClient.*;
 public abstract class InGameHudMixin
 {
     @Shadow public abstract TextRenderer getTextRenderer();
-
     @Shadow private int scaledHeight;
     @Shadow private int scaledWidth;
     @Shadow @Final private MinecraftClient client;
-    int shardIconInTicks = 10;
-    int shardIconStayTicks = 100;
-    int shardIconFadeOutTicks = 40;
-
-    //TODO - написать работу отображения элементов Custom HUD'a
     @Inject(at = @At("RETURN"), method = "render")
     public void onRender(MatrixStack matrices, float tickDelta, CallbackInfo ci)
     {
@@ -158,7 +152,6 @@ public abstract class InGameHudMixin
             }
         }
     }
-
     /**
      * @author Zaksen_
      * @reason add "hide" option

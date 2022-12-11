@@ -3,7 +3,7 @@
   "id": "dwhud",
   "version": "${version}",
   "name": "DWHud",
-  "description": "добавляет custom HUD'a для сервера Diamond World",
+  "description": "Добавляет custom HUD для сервера Diamond World",
   "authors": [
     "Zaksen_"
   ],
