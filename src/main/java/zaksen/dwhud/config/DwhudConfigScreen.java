@@ -28,9 +28,8 @@ public class DwhudConfigScreen extends DwhudConfig implements ConfigData {
         ConfigCategory general = builder.getOrCreateCategory(text("category.general"));
         ConfigCategory showSetting = builder.getOrCreateCategory(text("category.showSettings"));
         ConfigCategory elementsPositions = builder.getOrCreateCategory(text("category.elementsPositions"));
-
         var config = Dwhud.CONFIG;
-
+        //главные опции
         general.addEntry(entryBuilder.startBooleanToggle(text("general.option.hideScoreboard"), config.hideScoreboard)
                 .setDefaultValue(true)
                 .setTooltip(Text.of("Скрывать стадартный Scoreboard"))
@@ -44,6 +43,7 @@ public class DwhudConfigScreen extends DwhudConfig implements ConfigData {
         general.addEntry(entryBuilder.startIntField(text("general.option.textColor"), config.textColor)
                 .setDefaultValue(16777215)
                 .setTooltip(Text.of("Задает цвет текста который используется в моде(ARGB)"))
+                .setSaveConsumer(newValue -> config.textColor = newValue)
                 .build());
         general.addEntry(entryBuilder.startDropdownMenu(text("general.option.preset"), DropdownMenuBuilder.TopCellElementBuilder.of(config.preset,
                 s -> {
@@ -56,43 +56,43 @@ public class DwhudConfigScreen extends DwhudConfig implements ConfigData {
                 .setSaveConsumer(newValue -> config.preset = newValue)
                 .setTooltip(Text.of("Задает вид(тему) отображаемых элементов"))
                 .build());
-
+        //опции отображения
         showSetting.addEntry(entryBuilder.startBooleanToggle(text("showSettings.option.showMoney"), config.stuff.showMoney)
-                .setDefaultValue(true) // Recommended: Used when user click "Reset"
-                .setTooltip(Text.of("Эта опция отвечает за показ строки баланса")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> config.stuff.showMoney = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(true) 
+                .setTooltip(Text.of("Эта опция отвечает за показ строки баланса")) 
+                .setSaveConsumer(newValue -> config.stuff.showMoney = newValue) 
+                .build()); 
         showSetting.addEntry(entryBuilder.startBooleanToggle(text("showSettings.option.showShards"), config.stuff.showShards)
-                .setDefaultValue(true) // Recommended: Used when user click "Reset"
-                .setTooltip(Text.of("Эта опция отвечает за показ строки шардов")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> config.stuff.showShards = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(true) 
+                .setTooltip(Text.of("Эта опция отвечает за показ строки шардов")) 
+                .setSaveConsumer(newValue -> config.stuff.showShards = newValue) 
+                .build()); 
         showSetting.addEntry(entryBuilder.startBooleanToggle(text("showSettings.option.showLevel"), config.stuff.showLevel)
-                .setDefaultValue(true) // Recommended: Used when user click "Reset"
-                .setTooltip(Text.of("Эта опция отвечает за показ строки уровня")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> config.stuff.showLevel = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(true) 
+                .setTooltip(Text.of("Эта опция отвечает за показ строки уровня")) 
+                .setSaveConsumer(newValue -> config.stuff.showLevel = newValue) 
+                .build()); 
         showSetting.addEntry(entryBuilder.startBooleanToggle(text("showSettings.option.showBlocks"), config.stuff.showBlocks)
-                .setDefaultValue(true) // Recommended: Used when user click "Reset"
-                .setTooltip(Text.of("Эта опция отвечает за показ строки блоков")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> config.stuff.showBlocks = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(true) 
+                .setTooltip(Text.of("Эта опция отвечает за показ строки блоков")) 
+                .setSaveConsumer(newValue -> config.stuff.showBlocks = newValue) 
+                .build()); 
         showSetting.addEntry(entryBuilder.startBooleanToggle(text("showSettings.option.showKills"), config.stuff.showKills)
-                .setDefaultValue(false) // Recommended: Used when user click "Reset"
-                .setTooltip(Text.of("Эта опция отвечает за показ строки убийств")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> config.stuff.showKills = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(false) 
+                .setTooltip(Text.of("Эта опция отвечает за показ строки убийств")) 
+                .setSaveConsumer(newValue -> config.stuff.showKills = newValue) 
+                .build()); 
         showSetting.addEntry(entryBuilder.startBooleanToggle(text("showSettings.option.showOnline"), config.stuff.showOnline)
-                .setDefaultValue(false) // Recommended: Used when user click "Reset"
-                .setTooltip(Text.of("Эта опция отвечает за показ строки онлайна")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> config.stuff.showOnline = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
+                .setDefaultValue(false) 
+                .setTooltip(Text.of("Эта опция отвечает за показ строки онлайна")) 
+                .setSaveConsumer(newValue -> config.stuff.showOnline = newValue) 
+                .build()); 
         showSetting.addEntry(entryBuilder.startBooleanToggle(text("showSettings.option.showEvent"), config.stuff.showEvent)
-                .setDefaultValue(false) // Recommended: Used when user click "Reset"
-                .setTooltip(Text.of("Эта опция отвечает за показ строки события")) // Optional: Shown when the user hover over this option
-                .setSaveConsumer(newValue -> config.stuff.showEvent = newValue) // Recommended: Called when user save the config
-                .build()); // Builds the option entry for cloth config
-
+                .setDefaultValue(false) 
+                .setTooltip(Text.of("Эта опция отвечает за показ строки события")) 
+                .setSaveConsumer(newValue -> config.stuff.showEvent = newValue) 
+                .build()); 
+        //опции позиции
         elementsPositions.addEntry(entryBuilder.startIntField(text("elementsPositions.option.moneyX"), config.positions.moneyX)
                 .setDefaultValue(10)
                 .setTooltip(Text.of("Эта опиция отвечает за положения строки денег по X(Ширина) кординате"))
@@ -163,7 +163,7 @@ public class DwhudConfigScreen extends DwhudConfig implements ConfigData {
                 .setTooltip(Text.of("Эта опиция отвечает за положения строки событий по Y(Высота) кординате"))
                 .setSaveConsumer(newValue -> config.positions.eventY = newValue)
                 .build());
-
+        //Сохранение
         builder.setSavingRunnable(() -> {
             AutoConfig.getConfigHolder(DwhudConfigScreen.class).save();
         });

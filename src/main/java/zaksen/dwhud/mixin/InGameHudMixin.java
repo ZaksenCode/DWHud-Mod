@@ -40,114 +40,115 @@ public abstract class InGameHudMixin
     @Inject(at = @At("RETURN"), method = "render")
     public void onRender(MatrixStack matrices, float tickDelta, CallbackInfo ci)
     {
+        TextRenderer font = this.getTextRenderer();
         if(Dwhud.CONFIG.showElements)
         {
             if(Dwhud.CONFIG.preset.equals(DwhudConfig.presetType.text_minimal))
             {
                 if(Dwhud.CONFIG.stuff.showMoney)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Баланс: " + money), Dwhud.CONFIG.positions.moneyX, Dwhud.CONFIG.positions.moneyY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("Баланс: " + money), Dwhud.CONFIG.positions.moneyX, Dwhud.CONFIG.positions.moneyY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showShards)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Шарды: " + shards), Dwhud.CONFIG.positions.shardsX, Dwhud.CONFIG.positions.shardsY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("Шарды: " + shards), Dwhud.CONFIG.positions.shardsX, Dwhud.CONFIG.positions.shardsY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showLevel)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Уровень: " + level), Dwhud.CONFIG.positions.levelX, Dwhud.CONFIG.positions.levelY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("Уровень: " + level), Dwhud.CONFIG.positions.levelX, Dwhud.CONFIG.positions.levelY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showKills)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Убийства: " + kills), Dwhud.CONFIG.positions.killsX, Dwhud.CONFIG.positions.killsY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("Убийства: " + kills), Dwhud.CONFIG.positions.killsX, Dwhud.CONFIG.positions.killsY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showBlocks)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Блоки: " + blocks), Dwhud.CONFIG.positions.blocksX, Dwhud.CONFIG.positions.blocksY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("Блоки: " + blocks), Dwhud.CONFIG.positions.blocksX, Dwhud.CONFIG.positions.blocksY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showOnline)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Онлайн: " + online), Dwhud.CONFIG.positions.onlineX, Dwhud.CONFIG.positions.onlineY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("Онлайн: " + online), Dwhud.CONFIG.positions.onlineX, Dwhud.CONFIG.positions.onlineY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showEvent)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Событие: " + event), Dwhud.CONFIG.positions.eventX, Dwhud.CONFIG.positions.eventY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("Событие: " + event), Dwhud.CONFIG.positions.eventX, Dwhud.CONFIG.positions.eventY, Dwhud.CONFIG.textColor);
                 }
             }
             else if (Dwhud.CONFIG.preset.equals(DwhudConfig.presetType.icon_minimal))
             {
                 if(Dwhud.CONFIG.stuff.showMoney)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE364"), Dwhud.CONFIG.positions.moneyX, Dwhud.CONFIG.positions.moneyY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of(money), Dwhud.CONFIG.positions.moneyX + 15, Dwhud.CONFIG.positions.moneyY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE364"), Dwhud.CONFIG.positions.moneyX, Dwhud.CONFIG.positions.moneyY, 16777215);
+                    font.drawWithShadow(matrices, Text.of(money), Dwhud.CONFIG.positions.moneyX + 15, Dwhud.CONFIG.positions.moneyY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showShards)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE365"), Dwhud.CONFIG.positions.shardsX, Dwhud.CONFIG.positions.shardsY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of(shards), Dwhud.CONFIG.positions.shardsX + 15, Dwhud.CONFIG.positions.shardsY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE365"), Dwhud.CONFIG.positions.shardsX, Dwhud.CONFIG.positions.shardsY, 16777215);
+                    font.drawWithShadow(matrices, Text.of(shards), Dwhud.CONFIG.positions.shardsX + 15, Dwhud.CONFIG.positions.shardsY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showLevel)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE35F"), Dwhud.CONFIG.positions.levelX, Dwhud.CONFIG.positions.levelY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of(level), Dwhud.CONFIG.positions.levelX + 15, Dwhud.CONFIG.positions.levelY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE35F"), Dwhud.CONFIG.positions.levelX, Dwhud.CONFIG.positions.levelY, 16777215);
+                    font.drawWithShadow(matrices, Text.of(level), Dwhud.CONFIG.positions.levelX + 15, Dwhud.CONFIG.positions.levelY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showKills)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE35E"), Dwhud.CONFIG.positions.killsX, Dwhud.CONFIG.positions.killsY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of(kills), Dwhud.CONFIG.positions.killsX + 15, Dwhud.CONFIG.positions.killsY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE35E"), Dwhud.CONFIG.positions.killsX, Dwhud.CONFIG.positions.killsY, 16777215);
+                    font.drawWithShadow(matrices, Text.of(kills), Dwhud.CONFIG.positions.killsX + 15, Dwhud.CONFIG.positions.killsY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showBlocks)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE35D"), Dwhud.CONFIG.positions.blocksX, Dwhud.CONFIG.positions.blocksY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of(blocks), Dwhud.CONFIG.positions.blocksX + 15, Dwhud.CONFIG.positions.blocksY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE35D"), Dwhud.CONFIG.positions.blocksX, Dwhud.CONFIG.positions.blocksY, 16777215);
+                    font.drawWithShadow(matrices, Text.of(blocks), Dwhud.CONFIG.positions.blocksX + 15, Dwhud.CONFIG.positions.blocksY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showOnline)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE352"), Dwhud.CONFIG.positions.onlineX, Dwhud.CONFIG.positions.onlineY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of(online), Dwhud.CONFIG.positions.onlineX + 15, Dwhud.CONFIG.positions.onlineY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE352"), Dwhud.CONFIG.positions.onlineX, Dwhud.CONFIG.positions.onlineY, 16777215);
+                    font.drawWithShadow(matrices, Text.of(online), Dwhud.CONFIG.positions.onlineX + 15, Dwhud.CONFIG.positions.onlineY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showEvent)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE366"), Dwhud.CONFIG.positions.eventX, Dwhud.CONFIG.positions.eventY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of(event), Dwhud.CONFIG.positions.eventX + 15, Dwhud.CONFIG.positions.eventY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE366"), Dwhud.CONFIG.positions.eventX, Dwhud.CONFIG.positions.eventY, 16777215);
+                    font.drawWithShadow(matrices, Text.of(event), Dwhud.CONFIG.positions.eventX + 15, Dwhud.CONFIG.positions.eventY, Dwhud.CONFIG.textColor);
                 }
             }
             else if (Dwhud.CONFIG.preset.equals(DwhudConfig.presetType.both_minimal))
             {
                 if(Dwhud.CONFIG.stuff.showMoney)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE364"), Dwhud.CONFIG.positions.moneyX, Dwhud.CONFIG.positions.moneyY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Баланс: " + money), Dwhud.CONFIG.positions.moneyX + 15, Dwhud.CONFIG.positions.moneyY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE364"), Dwhud.CONFIG.positions.moneyX, Dwhud.CONFIG.positions.moneyY, 16777215);
+                    font.drawWithShadow(matrices, Text.of("Баланс: " + money), Dwhud.CONFIG.positions.moneyX + 15, Dwhud.CONFIG.positions.moneyY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showShards)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE365"), Dwhud.CONFIG.positions.shardsX, Dwhud.CONFIG.positions.shardsY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Шарды: " + shards), Dwhud.CONFIG.positions.shardsX + 15, Dwhud.CONFIG.positions.shardsY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE365"), Dwhud.CONFIG.positions.shardsX, Dwhud.CONFIG.positions.shardsY, 16777215);
+                    font.drawWithShadow(matrices, Text.of("Шарды: " + shards), Dwhud.CONFIG.positions.shardsX + 15, Dwhud.CONFIG.positions.shardsY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showLevel)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE35F"), Dwhud.CONFIG.positions.levelX, Dwhud.CONFIG.positions.levelY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Уровень: " + level), Dwhud.CONFIG.positions.levelX + 15, Dwhud.CONFIG.positions.levelY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE35F"), Dwhud.CONFIG.positions.levelX, Dwhud.CONFIG.positions.levelY, 16777215);
+                    font.drawWithShadow(matrices, Text.of("Уровень: " + level), Dwhud.CONFIG.positions.levelX + 15, Dwhud.CONFIG.positions.levelY, Dwhud.CONFIG.textColor);
                 }
 
                 if(Dwhud.CONFIG.stuff.showKills)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE35E"), Dwhud.CONFIG.positions.killsX, Dwhud.CONFIG.positions.killsY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Убийства: " + kills), Dwhud.CONFIG.positions.killsX + 15, Dwhud.CONFIG.positions.killsY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE35E"), Dwhud.CONFIG.positions.killsX, Dwhud.CONFIG.positions.killsY, 16777215);
+                    font.drawWithShadow(matrices, Text.of("Убийства: " + kills), Dwhud.CONFIG.positions.killsX + 15, Dwhud.CONFIG.positions.killsY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showBlocks)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE35D"), Dwhud.CONFIG.positions.blocksX, Dwhud.CONFIG.positions.blocksY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Блоки: " + blocks), Dwhud.CONFIG.positions.blocksX + 15, Dwhud.CONFIG.positions.blocksY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE35D"), Dwhud.CONFIG.positions.blocksX, Dwhud.CONFIG.positions.blocksY, 16777215);
+                    font.drawWithShadow(matrices, Text.of("Блоки: " + blocks), Dwhud.CONFIG.positions.blocksX + 15, Dwhud.CONFIG.positions.blocksY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showOnline)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE352"), Dwhud.CONFIG.positions.onlineX, Dwhud.CONFIG.positions.onlineY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Онлайн: " + online), Dwhud.CONFIG.positions.onlineX + 15, Dwhud.CONFIG.positions.onlineY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE352"), Dwhud.CONFIG.positions.onlineX, Dwhud.CONFIG.positions.onlineY, 16777215);
+                    font.drawWithShadow(matrices, Text.of("Онлайн: " + online), Dwhud.CONFIG.positions.onlineX + 15, Dwhud.CONFIG.positions.onlineY, Dwhud.CONFIG.textColor);
                 }
                 if(Dwhud.CONFIG.stuff.showEvent)
                 {
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("\uE366"), Dwhud.CONFIG.positions.eventX, Dwhud.CONFIG.positions.eventY, 16777215);
-                    this.getTextRenderer().drawWithShadow(matrices, Text.of("Событие: " + event), Dwhud.CONFIG.positions.eventX + 15, Dwhud.CONFIG.positions.eventY, Dwhud.CONFIG.textColor);
+                    font.drawWithShadow(matrices, Text.of("\uE366"), Dwhud.CONFIG.positions.eventX, Dwhud.CONFIG.positions.eventY, 16777215);
+                    font.drawWithShadow(matrices, Text.of("Событие: " + event), Dwhud.CONFIG.positions.eventX + 15, Dwhud.CONFIG.positions.eventY, Dwhud.CONFIG.textColor);
                 }
             }
         }
@@ -172,7 +173,7 @@ public abstract class InGameHudMixin
                 collection = list;
             }
 
-            List<Pair<ScoreboardPlayerScore, Text>> list2 = Lists.newArrayListWithCapacity(((Collection)collection).size());
+            List<Pair<ScoreboardPlayerScore, Text>> list2 = Lists.newArrayListWithCapacity(((Collection<?>)collection).size());
             Text text = objective.getDisplayName();
             int i = this.getTextRenderer().getWidth(text);
             int j = i;

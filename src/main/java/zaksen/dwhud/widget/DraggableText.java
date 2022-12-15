@@ -66,6 +66,10 @@ public class DraggableText extends DrawableHelper implements Drawable, Element, 
 
     @Override
     public SelectionType getType() {
+        if(isDragging)
+        {
+            return SelectionType.FOCUSED;
+        }
         return SelectionType.NONE;
     }
 
