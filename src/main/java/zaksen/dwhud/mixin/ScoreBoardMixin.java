@@ -38,7 +38,7 @@ public class ScoreBoardMixin
             }
             else if(name.contains("Уровень"))
             {
-                name = name.replaceAll("\uE35F","");
+                name = name.replaceAll("\uE35F","").replace("I", "");
                 String[] Names = name.split(":");
                 level = Names[1];
             }
@@ -69,7 +69,7 @@ public class ScoreBoardMixin
         }
         catch (Exception e)
         {
-            Dwhud.LOG.error("ScoreBoardMixin: ");
+            Dwhud.LOG.error("ScoreBoardMixin: " + e);
         }
     }
 }
