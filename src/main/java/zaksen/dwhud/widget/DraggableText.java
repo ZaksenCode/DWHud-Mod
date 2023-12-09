@@ -50,6 +50,16 @@ public class DraggableText extends DrawableHelper implements Drawable, Element, 
     }
 
     @Override
+    public void setFocused(boolean focused) {
+
+    }
+
+    @Override
+    public boolean isFocused() {
+        return false;
+    }
+
+    @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if(isMouseOver(mouseX,mouseY))
         {

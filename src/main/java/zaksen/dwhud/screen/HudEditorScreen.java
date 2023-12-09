@@ -36,13 +36,13 @@ public class HudEditorScreen extends Screen
         killsText = this.addDrawableChild(new DraggableText(Dwhud.CONFIG.positions.killsX, Dwhud.CONFIG.positions.killsY, Text.of("Убийства: 0")));
         onlineText = this.addDrawableChild(new DraggableText(Dwhud.CONFIG.positions.onlineX, Dwhud.CONFIG.positions.onlineY, Text.of("Онлайн: 0")));
         eventText = this.addDrawableChild(new DraggableText(Dwhud.CONFIG.positions.eventX, Dwhud.CONFIG.positions.eventY, Text.of("Событие: ")));
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 50, this.height - 20 - 5, 100, 20, Text.of("Сохранить"), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(Text.of("Сохранить"), (button) -> {
             Dwhud.CONFIG.showElements = true;
             this.savePositions();
             assert this.client != null;
             this.client.setScreen((Screen)null);
             this.client.mouse.lockCursor();
-        }));
+        }).dimensions(this.width / 2 - 50, this.height - 20 - 5, 100, 20).build());
     }
 
     public void savePositions()

@@ -24,7 +24,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import zaksen.dwhud.Dwhud;
 import zaksen.dwhud.config.DwhudConfig;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static net.minecraft.client.gui.DrawableHelper.fill;
@@ -34,9 +37,10 @@ import static zaksen.dwhud.client.DwhudClient.*;
 public abstract class InGameHudMixin
 {
     @Shadow public abstract TextRenderer getTextRenderer();
-    @Shadow private int scaledHeight;
     @Shadow private int scaledWidth;
-    @Shadow @Final private MinecraftClient client;
+    @Shadow private int scaledHeight;
+    @Final
+    @Shadow private MinecraftClient client;
     @Inject(at = @At("RETURN"), method = "render")
     public void onRender(MatrixStack matrices, float tickDelta, CallbackInfo ci)
     {
@@ -153,6 +157,7 @@ public abstract class InGameHudMixin
             }
         }
     }
+
     /**
      * @author Zaksen_
      * @reason add "hide" option
@@ -164,7 +169,7 @@ public abstract class InGameHudMixin
         {
             Scoreboard scoreboard = objective.getScoreboard();
             Collection<ScoreboardPlayerScore> collection = scoreboard.getAllPlayerScores(objective);
-            List<ScoreboardPlayerScore> list = (List)collection.stream().filter((score) -> {
+            List<ScoreboardPlayerScore> list = collection.stream().filter((score) -> {
                 return score.getPlayerName() != null && !score.getPlayerName().startsWith("#");
             }).collect(Collectors.toList());
             if (list.size() > 15) {
@@ -181,14 +186,14 @@ public abstract class InGameHudMixin
 
             ScoreboardPlayerScore scoreboardPlayerScore;
             MutableText text2;
-            for(Iterator var11 = ((Collection)collection).iterator(); var11.hasNext(); j = Math.max(j, this.getTextRenderer().getWidth(text2) + k + this.getTextRenderer().getWidth(Integer.toString(scoreboardPlayerScore.getScore())))) {
+            for(Iterator var11 = (collection).iterator(); var11.hasNext(); j = Math.max(j, this.getTextRenderer().getWidth(text2) + k + this.getTextRenderer().getWidth(Integer.toString(scoreboardPlayerScore.getScore())))) {
                 scoreboardPlayerScore = (ScoreboardPlayerScore)var11.next();
                 Team team = scoreboard.getPlayerTeam(scoreboardPlayerScore.getPlayerName());
                 text2 = Team.decorateName(team, Text.literal(scoreboardPlayerScore.getPlayerName()));
                 list2.add(Pair.of(scoreboardPlayerScore, text2));
             }
 
-            int var10000 = ((Collection)collection).size();
+            int var10000 = (collection).size();
             Objects.requireNonNull(this.getTextRenderer());
             int l = var10000 * 9;
             int m = this.scaledHeight / 2 + l / 3;
@@ -196,13 +201,11 @@ public abstract class InGameHudMixin
             int p = 0;
             int q = this.client.options.getTextBackgroundColor(0.3F);
             int r = this.client.options.getTextBackgroundColor(0.4F);
-            Iterator var18 = list2.iterator();
 
-            while(var18.hasNext()) {
-                Pair<ScoreboardPlayerScore, Text> pair = (Pair)var18.next();
+            for (Pair<ScoreboardPlayerScore, Text> scoreboardPlayerScoreTextPair : list2) {
                 ++p;
-                ScoreboardPlayerScore scoreboardPlayerScore2 = (ScoreboardPlayerScore)pair.getFirst();
-                Text text3 = (Text)pair.getSecond();
+                ScoreboardPlayerScore scoreboardPlayerScore2 = scoreboardPlayerScoreTextPair.getFirst();
+                Text text3 = scoreboardPlayerScoreTextPair.getSecond();
                 Formatting var31 = Formatting.RED;
                 String string = "" + var31 + scoreboardPlayerScore2.getScore();
                 Objects.requireNonNull(this.getTextRenderer());
@@ -211,17 +214,17 @@ public abstract class InGameHudMixin
                 int var10001 = o - 2;
                 Objects.requireNonNull(this.getTextRenderer());
                 fill(matrices, var10001, t, u, t + 9, q);
-                this.getTextRenderer().draw(matrices, text3, (float)o, (float)t, -1);
-                this.getTextRenderer().draw(matrices, string, (float)(u - this.getTextRenderer().getWidth(string)), (float)t, -1);
-                if (p == ((Collection)collection).size()) {
+                this.getTextRenderer().draw(matrices, text3, (float) o, (float) t, -1);
+                this.getTextRenderer().draw(matrices, string, (float) (u - this.getTextRenderer().getWidth(string)), (float) t, -1);
+                if (p == ( collection).size()) {
                     var10001 = o - 2;
                     Objects.requireNonNull(this.getTextRenderer());
                     fill(matrices, var10001, t - 9 - 1, u, t - 1, r);
                     fill(matrices, o - 2, t - 1, u, t, q);
                     TextRenderer var32 = this.getTextRenderer();
-                    float var10003 = (float)(o + j / 2 - i / 2);
+                    float var10003 = (float) (o + j / 2 - i / 2);
                     Objects.requireNonNull(this.getTextRenderer());
-                    var32.draw(matrices, text, var10003, (float)(t - 9), -1);
+                    var32.draw(matrices, text, var10003, (float) (t - 9), -1);
                 }
             }
         }

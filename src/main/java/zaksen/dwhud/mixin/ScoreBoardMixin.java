@@ -62,7 +62,7 @@ public class ScoreBoardMixin
             }
             else if(name.contains("Событие"))
             {
-                name = name.replaceAll("\uE366","");
+                name = name.replaceAll("\uE366","").replaceAll("\\[§x§2§1§e§7§c§d]", "").replaceFirst(" ", "");
                 String[] Names = name.split(":");
                 event = Names[1];
             }
